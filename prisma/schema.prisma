@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url = env("DATABASE_URL")
+}
+
+model User {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId // MongoDB ObjectId
+  name       String
+  email      String   @unique
+  password   String
+  role       String   // "mentor" or "mentee"
+  skills     String[]    
+  interests  String  
+  bio        String
+  sentRequests   sentRequests[] // Store array of sent request IDs or objects
+  receivedRequests receivedRequests[] // Store array of received request IDs or objects
+  followers  String[] @db.ObjectId
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+type receivedRequests{
+  userId String @db.ObjectId 
+  timestamp DateTime
+}
+
+type sentRequests{
+  userId String @db.ObjectId 
+  timestamp DateTime
+}
+
+
+
+// model Match {
+//   id           String   @id @default(auto()) @map("_id") @db.ObjectId // MongoDB ObjectId
+//   mentorId     String   @db.ObjectId
+//   menteeId     String   @db.ObjectId
+//   mentor       User     @relation("MentorMatches", fields: [mentorId], references: [id])
+//   mentee       User     @relation("MenteeMatches", fields: [menteeId], references: [id])
+//   status       String   // "pending", "accepted", "declined"
+//   createdAt    DateTime @default(now())
+// }
