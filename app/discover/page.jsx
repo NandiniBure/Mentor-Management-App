@@ -240,7 +240,7 @@ export default function UserDiscovery() {
                 <div
                   className={`absolute ${
                     window.innerWidth < 500
-                      ? "left-1/2 transform w-52 ml-5 -translate-x-1/2 top-16"
+                      ? "left-1/2 transform w-40 ml-5 -translate-x-1/2 top-16"
                       : "right-0 mt-2"
                   } w-96 bg-gray-800 text-white rounded-lg shadow-lg p-4`}
                 >
