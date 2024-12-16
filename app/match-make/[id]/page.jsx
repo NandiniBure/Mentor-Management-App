@@ -18,7 +18,9 @@ export default function Matchmaking() {
 		async function fetchUsersAndCurrentUser() {
 			try {
 				// Fetch all users
-				const usersResponse = await fetch("http://localhost:3000/api/user");
+				const usersResponse = await fetch(
+          "https://mentor-management-app-i5un-plsex674r-nandinibures-projects.vercel.app/api/user"
+        );
 				if (!usersResponse.ok) {
 					throw new Error("Failed to fetch users");
 				}
@@ -27,8 +29,8 @@ export default function Matchmaking() {
 
 				// Fetch current user based on ID from params
 				const currentUserResponse = await fetch(
-					`http://localhost:3000/api/user/${id}`
-				);
+          `https://mentor-management-app-i5un-plsex674r-nandinibures-projects.vercel.app/api/user/${id}`
+        );
 				if (!currentUserResponse.ok) {
 					throw new Error("Failed to fetch current user");
 				}

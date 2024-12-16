@@ -26,14 +26,14 @@ export default function UserDiscovery() {
 			const storedUser = localStorage.getItem("currentUser");
 			const user = JSON.parse(storedUser);
 			const response = await fetch(
-				`http://localhost:3000/api/user/${user.id}`,
-				{
-					method: "GET",
-					headers: {
-						"Content-Type": "application/json",
-					},
-				}
-			);
+        `https://mentor-management-app-i5un-plsex674r-nandinibures-projects.vercel.app/api/user/${user.id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 			if (!response.ok) {
 				throw new Error("Failed to send request");
 			}
@@ -52,16 +52,19 @@ export default function UserDiscovery() {
 
 	const handleConnect = async (mentorId) => {
 		try {
-			const response = await fetch("http://localhost:3000/api/connect", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					menteeId: currentUser.id, // Current user (mentee) ID
-					mentorId: mentorId, // Target mentor ID
-				}),
-			});
+			const response = await fetch(
+        "https://mentor-management-app-i5un-plsex674r-nandinibures-projects.vercel.app/api/connect",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            menteeId: currentUser.id, // Current user (mentee) ID
+            mentorId: mentorId, // Target mentor ID
+          }),
+        }
+      );
 
 			if (!response.ok) {
 				throw new Error("Failed to send request");
@@ -79,12 +82,15 @@ export default function UserDiscovery() {
 	useEffect(() => {
 		async function fetchUsers() {
 			try {
-				const response = await fetch("http://localhost:3000/api/user", {
-					method: "GET",
-					headers: {
-						"Content-Type": "application/json",
-					},
-				});
+				const response = await fetch(
+          "https://mentor-management-app-i5un-plsex674r-nandinibures-projects.vercel.app/api/user",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
 				if (!response.ok) throw new Error("Failed to fetch users");
 				const data = await response.json();
@@ -132,13 +138,16 @@ export default function UserDiscovery() {
 
 	const handleAccept = async (currentUserId, requestId) => {
 		try {
-			const response = await fetch("http://localhost:3000/api/notification", {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ currentUserId, requestId }), // Pass both parameters
-			});
+			const response = await fetch(
+        "https://mentor-management-app-i5un-plsex674r-nandinibures-projects.vercel.app/api/notification",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ currentUserId, requestId }), // Pass both parameters
+        }
+      );
 
 			if (!response.ok) {
 				const errorText = await response.text();
@@ -170,8 +179,8 @@ export default function UserDiscovery() {
 		async function fetchNotifications() {
 			try {
 				const response = await fetch(
-					`http://localhost:3000/api/notification?userId=${currentUser.id}`
-				);
+          `https://mentor-management-app-i5un-plsex674r-nandinibures-projects.vercel.app/api/notification?userId=${currentUser.id}`
+        );
 
 				const contentType = response.headers.get("content-type");
 

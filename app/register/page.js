@@ -27,13 +27,16 @@ export default function Register() {
 
     try {
       
-   const response = await fetch("http://localhost:3000/api/register", {
-     method: "POST",
-     headers: {
-       "Content-Type": "application/json",
-     },
-     body: JSON.stringify(formData),
-   });
+   const response = await fetch(
+     "https://mentor-management-app-i5un-plsex674r-nandinibures-projects.vercel.app/api/register",
+     {
+       method: "POST",
+       headers: {
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify(formData),
+     }
+   );
 
       
 
