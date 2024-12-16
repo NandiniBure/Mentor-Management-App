@@ -31,7 +31,7 @@ export default function Profile() {
 		if (!userId) return; // Wait until userId is available
 		async function fetchUser() {
 			try {
-				const response = await fetch(`/api/user/${userId}`);
+				const response = await fetch(`${baseURL}user/${userId}`);
 				if (!response.ok) {
 					throw new Error("Failed to fetch user data");
 				}
@@ -71,7 +71,7 @@ export default function Profile() {
 			let finalData = formData;
 			finalData.skills = formData.skills.map((option) => option.value);
 
-			const response = await fetch(`/api/user/${userId}`, {
+			const response = await fetch(`${baseURL}user/${userId}`, {
 				method: "PUT",
 				headers: {
 					"Content-Type": "application/json",

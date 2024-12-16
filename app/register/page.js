@@ -28,7 +28,7 @@ export default function Register() {
     try {
       
    const response = await fetch(
-     "https://mentor-management-app-i5un-plsex674r-nandinibures-projects.vercel.app/api/register",
+     `${baseURL}register`,
      {
        method: "POST",
        headers: {

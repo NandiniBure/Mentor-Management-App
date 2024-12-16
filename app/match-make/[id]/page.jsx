@@ -19,7 +19,7 @@ export default function Matchmaking() {
 			try {
 				// Fetch all users
 				const usersResponse = await fetch(
-          "https://mentor-management-app-i5un-plsex674r-nandinibures-projects.vercel.app/api/user"
+          `${baseURL}user`
         );
 				if (!usersResponse.ok) {
 					throw new Error("Failed to fetch users");
@@ -29,7 +29,7 @@ export default function Matchmaking() {
 
 				// Fetch current user based on ID from params
 				const currentUserResponse = await fetch(
-          `https://mentor-management-app-i5un-plsex674r-nandinibures-projects.vercel.app/api/user/${id}`
+          `${baseURL}user/${id}`
         );
 				if (!currentUserResponse.ok) {
 					throw new Error("Failed to fetch current user");
