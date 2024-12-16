@@ -1,1 +1,1 @@
-export const baseURL = "https://mentor-management-app-i5un.vercel.app/api/";
+export const baseURL = "https://mentor-management-app.vercel.app/api/";
