@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-
+import { baseURL } from "../util/constant";
 export default function Register() {
   const [formData, setFormData] = useState({
     name: "",

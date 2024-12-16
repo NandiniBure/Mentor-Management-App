@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import {baseURL} from "../util/constant"
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -20,6 +21,8 @@ export default function Login() {
     setMessage("");
 
     try {
+      console.log("-------------",baseURL+"login");
+
       const response = await fetch(
         `${baseURL}login`,
         {

@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
-import Select from "react-select";
+import Select from "react-select"
+import { baseURL } from "../../util/constant";
 
 export default function Profile() {
 	const router = useRouter();
@@ -70,6 +71,8 @@ export default function Profile() {
 		try {
 			let finalData = formData;
 			finalData.skills = formData.skills.map((option) => option.value);
+            
+			
 
 			const response = await fetch(`${baseURL}user/${userId}`, {
 				method: "PUT",

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-
+import { baseURL } from "../../util/constant";
 export default function Matchmaking() {
 	const [users, setUsers] = useState([]);
 	const [matches, setMatches] = useState([]);

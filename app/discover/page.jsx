@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-
+import { baseURL } from "../util/constant";
 export default function UserDiscovery() {
 	const [users, setUsers] = useState([]);
 	const [filteredUsers, setFilteredUsers] = useState([]);
