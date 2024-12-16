@@ -45,7 +45,7 @@ export default function Register() {
         setMessage("Account created successfully! Please log in.");
       } else {
         const errorData = await response.json();
-        setMessage(errorData.message || "Failed to create account.");
+        setMessage(errorData.error || "Failed to create account.");
       }
     } catch (error) {
       setMessage("Something went wrong. Please try again.");
